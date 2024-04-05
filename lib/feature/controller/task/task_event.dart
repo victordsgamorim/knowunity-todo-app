@@ -35,6 +35,13 @@ final class UpdateTaskEvent extends TaskEvent {
   List<Object?> get props => [task, userId];
 }
 
+final class DeleteTaskEvent extends TaskEvent {
+  final int taskId;
 
-final class LogoutEvent extends TaskEvent {
+  DeleteTaskEvent(this.taskId);
+
+  @override
+  List<Object?> get props => [taskId];
 }
+
+final class LogoutEvent extends TaskEvent {}

@@ -25,6 +25,8 @@ abstract interface class TodoRepository {
   updateTask(task.Task task, int userId);
 
   addNewTask(task.Task task, int userId);
+
+  deleteTask(int taskId);
 }
 
 class TodoRepositoryImpl implements TodoRepository {
@@ -88,4 +90,7 @@ class TodoRepositoryImpl implements TodoRepository {
   @override
   deleteUserFromSharedPreferences() =>
       _todoLocalDatasource.deleteUserFromSharedPreferences();
+
+  @override
+  deleteTask(int taskId) => _todoLocalDatasource.deleteTask(taskId);
 }

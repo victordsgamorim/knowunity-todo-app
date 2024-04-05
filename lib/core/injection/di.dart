@@ -7,7 +7,6 @@ import 'package:knowunity_todo_app/core/network/network_info.dart';
 import 'package:knowunity_todo_app/feature/controller/login/login_bloc.dart';
 import 'package:knowunity_todo_app/feature/controller/splash/splash_bloc.dart';
 import 'package:knowunity_todo_app/feature/controller/task/task_bloc.dart';
-import 'package:knowunity_todo_app/feature/controller/task/task_controller.dart';
 import 'package:knowunity_todo_app/feature/data/datasource/local/todo_local_datasource.dart';
 import 'package:knowunity_todo_app/feature/data/datasource/remote/todo_remote_datasource.dart';
 import 'package:knowunity_todo_app/feature/data/repository/todo_repository.dart';
@@ -20,7 +19,6 @@ setup() async {
   GetIt.I.registerFactory(() => SplashBloc(GetIt.I()));
   GetIt.I.registerFactory(() => LoginBloc(GetIt.I()));
   GetIt.I.registerFactory(() => TaskBloc(GetIt.I()));
-  GetIt.I.registerFactory(() => TaskController());
 
   /** REPOSITORY **/
   GetIt.I.registerLazySingleton<TodoRepository>(

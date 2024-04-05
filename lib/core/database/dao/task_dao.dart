@@ -12,6 +12,8 @@ abstract interface class TaskDao {
   saveBatch(List<TodoResponse> tasks);
 
   update(Task task, int userId);
+
+  delete(int id);
 }
 
 class TaskDaoImpl implements TaskDao {
@@ -73,5 +75,10 @@ class TaskDaoImpl implements TaskDao {
   update(Task task, int userId) async {
     final t = task.toMap()..['userId'] = userId;
     await _db.update(_taskTableName, t, where: 'id = ?', whereArgs: [task.id]);
+  }
+
+  @override
+  delete(int id) async {
+    await _db.delete(_taskTableName, where: 'id = ?', whereArgs: [id]);
   }
 }

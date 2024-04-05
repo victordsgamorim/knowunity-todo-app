@@ -25,6 +25,8 @@ abstract interface class TodoLocalDatasource {
   saveUserToSharedPreferences(User user);
 
   deleteUserFromSharedPreferences();
+
+  deleteTask(int taskId);
 }
 
 class TodoLocalDatasourceImpl extends TodoLocalDatasource {
@@ -84,4 +86,7 @@ class TodoLocalDatasourceImpl extends TodoLocalDatasource {
   deleteUserFromSharedPreferences() {
     _sharedPreferences.remove(userSp);
   }
+
+  @override
+  deleteTask(int taskId) => _taskDao.delete(taskId);
 }
